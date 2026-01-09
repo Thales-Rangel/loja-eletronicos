@@ -11,8 +11,8 @@ public class Client extends Users {
 
 	private String address;
 
-	public Client(ClientDTO client) {
-		BeanUtils.copyProperties(client, this);
+	public Client(ClientDTO dto) {
+		BeanUtils.copyProperties(dto, this);
 	}
 
 	public Client() {
