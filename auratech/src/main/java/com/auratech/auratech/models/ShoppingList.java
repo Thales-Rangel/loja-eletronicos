@@ -11,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class ShoppingList {
@@ -20,6 +21,8 @@ public class ShoppingList {
 	private Long id;
 	private String name;
 
+	@ManyToOne
+	private Client client;
 	@ManyToMany
 	private List<Product> products;
 	
