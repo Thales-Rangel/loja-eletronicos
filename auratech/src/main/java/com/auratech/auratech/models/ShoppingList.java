@@ -2,8 +2,6 @@ package com.auratech.auratech.models;
 
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
-
 import com.auratech.auratech.dto.ShoppingListDTO;
 
 import jakarta.persistence.Entity;
@@ -25,9 +23,13 @@ public class ShoppingList {
 	private Client client;
 	@ManyToMany
 	private List<Product> products;
-	
+
 	public ShoppingList(ShoppingListDTO dto) {
-		BeanUtils.copyProperties(dto, this);
+		this.id = dto.getId();
+		this.name = dto.getName();
+
+		this.client = new Client(dto.getClient());
+		this.products = dto.getProducts().stream().map(Product::new).toList();
 	}
 
 	public ShoppingList() {
@@ -47,6 +49,14 @@ public class ShoppingList {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	public List<Product> getProducts() {

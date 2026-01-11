@@ -2,8 +2,6 @@ package com.auratech.auratech.dto;
 
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
-
 import com.auratech.auratech.models.ShoppingList;
 
 public class ShoppingListDTO {
@@ -11,10 +9,15 @@ public class ShoppingListDTO {
 	private Long id;
 	private String name;
 
+	private ClientDTO client;
 	private List<ProductDTO> products;
-	
+
 	public ShoppingListDTO(ShoppingList list) {
-		BeanUtils.copyProperties(list, this);
+		this.id = list.getId();
+		this.name = list.getName();
+
+		this.client = new ClientDTO(list.getClient());
+		this.products = list.getProducts().stream().map(ProductDTO::new).toList();
 	}
 
 	public ShoppingListDTO() {
@@ -34,6 +37,14 @@ public class ShoppingListDTO {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public ClientDTO getClient() {
+		return client;
+	}
+
+	public void setClient(ClientDTO client) {
+		this.client = client;
 	}
 
 	public List<ProductDTO> getProducts() {
