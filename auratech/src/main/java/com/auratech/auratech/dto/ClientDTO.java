@@ -14,7 +14,7 @@ public class ClientDTO {
 	private String password;
 	private String address;
 
-	private ArrayList<ListDTO> lists;
+	private ArrayList<ShoppingListDTO> lists;
 
 	public ClientDTO(Client client) {
 		BeanUtils.copyProperties(client, this);
@@ -64,11 +64,11 @@ public class ClientDTO {
 		this.address = address;
 	}
 
-	public ArrayList<ListDTO> getLists() {
+	public ArrayList<ShoppingListDTO> getLists() {
 		return lists;
 	}
 
-	public void setLists(ArrayList<ListDTO> lists) {
+	public void setLists(ArrayList<ShoppingListDTO> lists) {
 		this.lists = lists;
 	}
 
