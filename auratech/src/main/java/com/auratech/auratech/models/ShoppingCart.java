@@ -2,6 +2,8 @@ package com.auratech.auratech.models;
 
 import java.util.List;
 
+import com.auratech.auratech.dto.ShoppingCartDTO;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +22,16 @@ public class ShoppingCart {
 	private Client client;
 	@ManyToMany
 	private List<Product> products;
+	
+	public ShoppingCart(ShoppingCartDTO cart) {
+		this.id = cart.getId();
+
+		this.client = new Client(cart.getClient());
+		this.products = cart.getProducts().stream().map(Product::new).toList();
+	}
+
+	public ShoppingCart() {
+	}
 
 	public Long getId() {
 		return id;
