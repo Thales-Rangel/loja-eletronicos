@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.auratech.auratech.dto.ClientDTO;
 import com.auratech.auratech.dto.ShoppingListDTO;
 import com.auratech.auratech.models.Client;
 import com.auratech.auratech.models.ShoppingList;
@@ -50,7 +51,8 @@ public class ShoppingListService {
 		return shoppingListDTO;
 	}
 	
-	public List<ShoppingListDTO> findByClient(Client client) {
+	public List<ShoppingListDTO> findByClient(ClientDTO dto) {
+		Client client = new Client(dto);
 		List<ShoppingList> byClient = repository.findByClient(client);
 		
 		return byClient.stream().map(ShoppingListDTO::new).toList();
