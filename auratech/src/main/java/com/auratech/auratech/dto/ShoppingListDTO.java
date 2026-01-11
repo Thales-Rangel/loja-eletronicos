@@ -4,20 +4,20 @@ import java.util.ArrayList;
 
 import org.springframework.beans.BeanUtils;
 
-import com.auratech.auratech.models.List;
+import com.auratech.auratech.models.ShoppingList;
 
-public class ListDTO {
+public class ShoppingListDTO {
 
 	private Long id;
 	private String name;
 
 	private ArrayList<ProductDTO> products;
 	
-	public ListDTO(List list) {
+	public ShoppingListDTO(ShoppingList list) {
 		BeanUtils.copyProperties(list, this);
 	}
 
-	public ListDTO() {
+	public ShoppingListDTO() {
 	}
 
 	public Long getId() {

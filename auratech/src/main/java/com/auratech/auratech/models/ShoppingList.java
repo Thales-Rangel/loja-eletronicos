@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.BeanUtils;
 
-import com.auratech.auratech.dto.ListDTO;
+import com.auratech.auratech.dto.ShoppingListDTO;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 
 @Entity
-public class List {
+public class ShoppingList {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,11 +23,11 @@ public class List {
 	@ManyToMany
 	private ArrayList<Product> products;
 	
-	public List(ListDTO dto) {
+	public ShoppingList(ShoppingListDTO dto) {
 		BeanUtils.copyProperties(dto, this);
 	}
 
-	public List() {
+	public ShoppingList() {
 	}
 
 	public Long getId() {
