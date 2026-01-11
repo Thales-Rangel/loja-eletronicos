@@ -1,21 +1,21 @@
 package com.auratech.auratech.models;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 
 import com.auratech.auratech.dto.ClientDTO;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Client extends Users {
 
 	private String address;
 
-	@ManyToOne
-	private ArrayList<ShoppingList> lists;
+	@OneToMany
+	private List<ShoppingList> lists;
 
 	public Client(ClientDTO dto) {
 		BeanUtils.copyProperties(dto, this);
@@ -32,11 +32,11 @@ public class Client extends Users {
 		this.address = address;
 	}
 
-	public ArrayList<ShoppingList> getLists() {
+	public List<ShoppingList> getLists() {
 		return lists;
 	}
 
-	public void setLists(ArrayList<ShoppingList> lists) {
+	public void setLists(List<ShoppingList> lists) {
 		this.lists = lists;
 	}
 

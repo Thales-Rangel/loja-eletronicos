@@ -1,6 +1,6 @@
 package com.auratech.auratech.dto;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 
@@ -14,7 +14,7 @@ public class ClientDTO {
 	private String password;
 	private String address;
 
-	private ArrayList<ShoppingListDTO> lists;
+	private List<ShoppingListDTO> lists;
 
 	public ClientDTO(Client client) {
 		BeanUtils.copyProperties(client, this);
@@ -64,11 +64,11 @@ public class ClientDTO {
 		this.address = address;
 	}
 
-	public ArrayList<ShoppingListDTO> getLists() {
+	public List<ShoppingListDTO> getLists() {
 		return lists;
 	}
 
-	public void setLists(ArrayList<ShoppingListDTO> lists) {
+	public void setLists(List<ShoppingListDTO> lists) {
 		this.lists = lists;
 	}
 

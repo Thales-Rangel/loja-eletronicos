@@ -1,6 +1,6 @@
 package com.auratech.auratech.models;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 
@@ -21,7 +21,7 @@ public class ShoppingList {
 	private String name;
 
 	@ManyToMany
-	private ArrayList<Product> products;
+	private List<Product> products;
 	
 	public ShoppingList(ShoppingListDTO dto) {
 		BeanUtils.copyProperties(dto, this);
@@ -46,11 +46,11 @@ public class ShoppingList {
 		this.name = name;
 	}
 
-	public ArrayList<Product> getProducts() {
+	public List<Product> getProducts() {
 		return products;
 	}
 
-	public void setProducts(ArrayList<Product> products) {
+	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
 

@@ -1,6 +1,6 @@
 package com.auratech.auratech.dto;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 
@@ -11,7 +11,7 @@ public class ShoppingListDTO {
 	private Long id;
 	private String name;
 
-	private ArrayList<ProductDTO> products;
+	private List<ProductDTO> products;
 	
 	public ShoppingListDTO(ShoppingList list) {
 		BeanUtils.copyProperties(list, this);
@@ -36,11 +36,11 @@ public class ShoppingListDTO {
 		this.name = name;
 	}
 
-	public ArrayList<ProductDTO> getProducts() {
+	public List<ProductDTO> getProducts() {
 		return products;
 	}
 
-	public void setProducts(ArrayList<ProductDTO> products) {
+	public void setProducts(List<ProductDTO> products) {
 		this.products = products;
 	}
 
