@@ -2,6 +2,8 @@ package com.auratech.auratech.models;
 
 import java.util.List;
 
+import com.auratech.auratech.dto.PurchaseOrderDTO;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +23,17 @@ public class PurchaseOrder {
 	private Client client;
 	@ManyToMany
 	private List<Product> products;
+
+	public PurchaseOrder(PurchaseOrderDTO dto) {
+		this.id = dto.getId();
+		this.totalPrice = dto.getTotalPrice();
+
+		this.client = new Client(dto.getClient());
+		this.products = dto.getProducts().stream().map(Product::new).toList();
+	}
+
+	public PurchaseOrder() {
+	}
 
 	public Long getId() {
 		return id;
