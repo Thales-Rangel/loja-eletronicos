@@ -10,14 +10,20 @@ public class PurchaseOrderDTO {
 	private float totalPrice;
 
 	private ClientDTO client;
-	private List<ProductDTO> products;
+	private List<OrderItemDTO> items;
 
 	public PurchaseOrderDTO(PurchaseOrder order) {
 		this.id = order.getId();
 		this.totalPrice = order.getTotalPrice();
 
 		this.client = new ClientDTO(order.getClient());
-		this.products = order.getProducts().stream().map(ProductDTO::new).toList();
+		this.items = order.getItems().stream().map(OrderItemDTO::new).toList();
+	}
+
+	public void calculateTotal() {
+		this.totalPrice = (float) items.stream()
+				.mapToDouble(item -> item.getPriceAtPurchase() * item.getQuantity())
+				.sum();
 	}
 
 	public PurchaseOrderDTO() {
@@ -47,12 +53,12 @@ public class PurchaseOrderDTO {
 		this.client = client;
 	}
 
-	public List<ProductDTO> getProducts() {
-		return products;
+	public List<OrderItemDTO> getItems() {
+		return items;
 	}
 
-	public void setProducts(List<ProductDTO> products) {
-		this.products = products;
+	public void setItems(List<OrderItemDTO> items) {
+		this.items = items;
 	}
 
 }

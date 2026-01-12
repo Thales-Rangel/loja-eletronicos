@@ -4,12 +4,13 @@ import java.util.List;
 
 import com.auratech.auratech.dto.PurchaseOrderDTO;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class PurchaseOrder {
@@ -21,15 +22,22 @@ public class PurchaseOrder {
 
 	@ManyToOne
 	private Client client;
-	@ManyToMany
-	private List<Product> products;
+
+	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+	private List<OrderItem> items;
 
 	public PurchaseOrder(PurchaseOrderDTO dto) {
 		this.id = dto.getId();
 		this.totalPrice = dto.getTotalPrice();
 
 		this.client = new Client(dto.getClient());
-		this.products = dto.getProducts().stream().map(Product::new).toList();
+		this.items = dto.getItems().stream().map(OrderItem::new).toList();
+	}
+
+	public void calculateTotal() {
+		this.totalPrice = (float) items.stream()
+				.mapToDouble(item -> item.getPriceAtPurchase() * item.getQuantity())
+				.sum();
 	}
 
 	public PurchaseOrder() {
@@ -59,12 +67,12 @@ public class PurchaseOrder {
 		this.client = client;
 	}
 
-	public List<Product> getProducts() {
-		return products;
+	public List<OrderItem> getItems() {
+		return items;
 	}
 
-	public void setProducts(List<Product> products) {
-		this.products = products;
+	public void setItems(List<OrderItem> items) {
+		this.items = items;
 	}
 
 }
