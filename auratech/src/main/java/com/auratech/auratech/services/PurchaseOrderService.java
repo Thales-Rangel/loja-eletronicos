@@ -14,6 +14,7 @@ import com.auratech.auratech.models.Product;
 import com.auratech.auratech.models.PurchaseOrder;
 import com.auratech.auratech.repositories.ClientRepository;
 import com.auratech.auratech.repositories.ProductRepository;
+import com.auratech.auratech.repositories.PurchaseOrderRepository;
 
 @Service
 public class PurchaseOrderService {

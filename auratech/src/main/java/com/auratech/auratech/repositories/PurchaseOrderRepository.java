@@ -1,4 +1,4 @@
-package com.auratech.auratech.services;
+package com.auratech.auratech.repositories;
 
 import java.util.List;
 
