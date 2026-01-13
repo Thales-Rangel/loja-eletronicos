@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.auratech.auratech.dto.ClientDTO;
 import com.auratech.auratech.dto.PurchaseOrderDTO;
 import com.auratech.auratech.models.Client;
 import com.auratech.auratech.models.OrderItem;
@@ -24,7 +25,7 @@ public class PurchaseOrderService {
 	@Autowired
 	private ProductRepository productRepository;
 
-	public PurchaseOrder createOrder(PurchaseOrderDTO dto) {
+	public PurchaseOrder create(PurchaseOrderDTO dto) {
 		// Criando instância de pedido
 		PurchaseOrder order = new PurchaseOrder();
 
@@ -98,6 +99,13 @@ public class PurchaseOrderService {
 
 		PurchaseOrderDTO purchaseOrder = new PurchaseOrderDTO(byId.get());
 		return purchaseOrder;
+	}
+	
+	public List<PurchaseOrderDTO> findByClient(ClientDTO clientDTO) {
+		Client client = new Client(clientDTO);
+		List<PurchaseOrder> byClient = repository.findByClient(client);
+		
+		return byClient.stream().map(PurchaseOrderDTO::new).toList();
 	}
 
 }
