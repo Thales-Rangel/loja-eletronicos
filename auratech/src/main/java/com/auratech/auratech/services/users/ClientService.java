@@ -1,4 +1,4 @@
-package com.auratech.auratech.services;
+package com.auratech.auratech.services.users;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,9 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.auratech.auratech.dto.ClientDTO;
-import com.auratech.auratech.models.Client;
-import com.auratech.auratech.repositories.ClientRepository;
+import com.auratech.auratech.dto.users.ClientDTO;
+import com.auratech.auratech.models.users.Client;
+import com.auratech.auratech.repositories.users.ClientRepository;
 
 @Service
 public class ClientService {

@@ -1,4 +1,4 @@
-package com.auratech.auratech.services;
+package com.auratech.auratech.services.users;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,9 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.auratech.auratech.dto.SellerDTO;
-import com.auratech.auratech.models.Seller;
-import com.auratech.auratech.repositories.SellerRepository;
+import com.auratech.auratech.dto.users.SellerDTO;
+import com.auratech.auratech.models.users.Seller;
+import com.auratech.auratech.repositories.users.SellerRepository;
 
 @Service
 public class SellerService {

@@ -1,22 +1,23 @@
-package com.auratech.auratech.dto;
+package com.auratech.auratech.dto.users;
 
 import org.springframework.beans.BeanUtils;
 
-import com.auratech.auratech.models.Seller;
+import com.auratech.auratech.models.users.Client;
 
-public class SellerDTO {
+public class ClientDTO {
 
 	private String CPF;
 	private String name;
 	private String email;
 	private String password;
-	private String sector;
+	private String address;
 
-	public SellerDTO(Seller seller) {
-		BeanUtils.copyProperties(seller, this);
+	public ClientDTO(Client client) {
+		BeanUtils.copyProperties(client, this);
 	}
 
-	public SellerDTO() {
+	public ClientDTO() {
+
 	}
 
 	public String getCPF() {
@@ -51,12 +52,12 @@ public class SellerDTO {
 		this.password = password;
 	}
 
-	public String getSector() {
-		return sector;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setSector(String sector) {
-		this.sector = sector;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 }

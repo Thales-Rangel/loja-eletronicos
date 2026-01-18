@@ -1,8 +1,8 @@
-package com.auratech.auratech.models;
+package com.auratech.auratech.models.users;
 
 import org.springframework.beans.BeanUtils;
 
-import com.auratech.auratech.dto.SellerDTO;
+import com.auratech.auratech.dto.users.SellerDTO;
 
 import jakarta.persistence.Entity;
 

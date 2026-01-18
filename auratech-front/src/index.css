@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@1,700&display=swap');
+@import "tailwindcss";
+
+
+.saira-sans {
+    font-family: "Saira", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 40px;
+    font-style: italic;
+    font-variation-settings:
+        "wdth" 100;
+}

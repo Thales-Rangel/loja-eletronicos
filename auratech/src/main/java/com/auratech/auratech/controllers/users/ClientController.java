@@ -1,4 +1,4 @@
-package com.auratech.auratech.controllers;
+package com.auratech.auratech.controllers.users;
 
 import java.util.List;
 
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.auratech.auratech.dto.ClientDTO;
-import com.auratech.auratech.services.ClientService;
+import com.auratech.auratech.dto.users.ClientDTO;
+import com.auratech.auratech.services.users.ClientService;
 
 @Controller
 @RequestMapping("/users/clients")

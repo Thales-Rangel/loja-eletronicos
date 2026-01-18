@@ -1,4 +1,4 @@
-package com.auratech.auratech.models;
+package com.auratech.auratech.models.users;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
